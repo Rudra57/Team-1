@@ -58,7 +58,7 @@ EVIDENCE_SCHEMA = {
 }
 
 
-def extract_from_chunk(chunk: dict) -> dict:
+def extract_chunk(chunk: dict) -> dict:
     prompt = f"""
 You are extracting evidence from medical research paper chunks.
 
@@ -101,6 +101,14 @@ Chunk text:
     content = response.choices[0].message.content
     return json.loads(content)
 
+def blank(row: dict) -> bool:
+    ignore_fields = {"chunk_id"}
+
+    for key, value in row.items():
+        if key not in ignore_fields and str(value).strip() != "":
+            return False
+
+    return True
 
 def main():
     with open(input_file, "r", encoding="utf-8") as f:
@@ -108,12 +116,19 @@ def main():
 
     rows = []
 
-    for i, chunk in enumerate(chunks, start=1):
-        print(f"Processing chunk {i}/{len(chunks)}: {chunk.get('paper_name')} #{chunk.get('chunk_id')}")
+    current_paper = ""
 
+    for i, chunk in enumerate(chunks, start=1):
+        paper_name = chunk.get("paper_name", "Unknown Paper")
+
+        if paper_name != current_paper:
+            current_paper = paper_name
+            print(f"\nProcessing paper: {paper_name}")
         try:
-            row = extract_from_chunk(chunk)
-            rows.append(row)
+            row = extract_chunk(chunk)
+
+            if not blank(row):
+                rows.append(row)
         except Exception as e:
             print(f"Error on chunk {chunk.get('chunk_id')}: {e}")
 
@@ -124,10 +139,6 @@ def main():
 
     df = pd.DataFrame(rows)
     df.to_csv(output_csv, index=False)
-
-    print(f"Saved JSON to {output_json}")
-    print(f"Saved CSV to {output_csv}")
-
 
 if __name__ == "__main__":
     main()
