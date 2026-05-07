@@ -1,0 +1,2 @@
+study_title,year,population,sample_size,sepsis_type,biomarker,outcome,main_finding,odds_ratio,auc,p_value,source_quote,paper_name,chunk_id
+TEST,2022,TEST,100,TEST,TEST,TEST,TEST,1.5,0.81,<0.05,TEST,TEST,0
