@@ -25,7 +25,17 @@ text Research PDFs → Structured Clinical Evidence
 
 # Project Architecture
 
-text Medical PDFs       ↓ PDF Text Extraction       ↓ Cleaning & Normalization       ↓ Chunking Pipeline       ↓ AI-Based Evidence Extraction       ↓ Pydantic Validation       ↓ Structured Evidence Table (CSV/Database) 
+Medical PDFs
+↓
+Text Extraction, Cleaning & Normalization       
+↓ 
+Chunking Pipeline       
+↓ 
+AI-Based Evidence Extraction       
+↓ 
+Pydantic Validation       
+↓ 
+Structured Evidence Table
 
 ---
 
