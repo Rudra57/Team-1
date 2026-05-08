@@ -1,4 +1,3 @@
-# Team-1
 # Sepsis Atlas — AI-Powered Clinical Evidence Extraction System
 
 ## Overview
