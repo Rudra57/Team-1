@@ -25,18 +25,19 @@ text Research PDFs → Structured Clinical Evidence
 
 # Project Architecture
 
+```text
 Medical PDFs
-↓
-Text Extraction, Cleaning & Normalization       
-↓ 
-Chunking Pipeline       
-↓ 
-AI-Based Evidence Extraction       
-↓ 
-Pydantic Validation       
-↓ 
+      ↓
+Text Extraction, Cleaning & Normalization
+      ↓
+Chunking Pipeline
+      ↓
+AI-Based Evidence Extraction
+      ↓
+Pydantic Validation
+      ↓
 Structured Evidence Table
-
+```
 ---
 
 # Team Responsibilities
