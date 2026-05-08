@@ -16,21 +16,9 @@ The project focuses on:
 
 ## Project Architecture
 
-```text
-Medical PDFs
-      ↓
-Text Extraction, Cleaning & Normalization
-      ↓
-Chunking Pipeline
-      ↓
-AI-Based Evidence Extraction
-      ↓
-Pydantic Validation
-      ↓
-Structured Evidence Table
-```
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/ff7cd9c3-d8ca-4917-8d36-5baa6971daff" />
 
----
+
 
 ## How to Use
 
