@@ -1,7 +1,5 @@
 # Sepsis Atlas — AI-Powered Clinical Evidence Extraction System
 
----
-
 ## Overview
 
 Sepsis Atlas is an AI-powered medical evidence pipeline designed to transform unstructured sepsis research papers into structured, analysis-ready clinical evidence.
