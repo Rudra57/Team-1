@@ -12,7 +12,7 @@ client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
 )
 
-input_file = Path("data/all_chunks.json")
+input_file = Path("data/chunks.json")
 output_json = Path("data/output/output.json")
 output_csv = Path("data/output/output.csv")
 
