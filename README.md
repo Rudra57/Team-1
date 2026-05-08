@@ -38,6 +38,7 @@ Pydantic Validation
       ↓
 Structured Evidence Table
 ```
+
 ---
 
 # Team Responsibilities
@@ -70,18 +71,6 @@ Structured Evidence Table
 - GPT/LLM prompt engineering
 - evidence extraction from chunks
 - schema-based structured output generation
-- source-grounded extraction
-- clinical finding identification
-
-### AI Extraction Goal
-
-Convert medical text like:
-
-text Patients with elevated lactate levels had significantly higher mortality. 
-
-into structured evidence:
-
-json {   "biomarker": "Lactate",   "outcome": "Mortality",   "main_finding": "Higher lactate associated with mortality" } 
 
 ---
 
@@ -91,11 +80,6 @@ json {   "biomarker": "Lactate",   "outcome": "Mortality",   "main_finding": "Hi
 
 Research papers are processed using PyMuPDF to extract raw text from all pages.
 
-### Output
-text *_extracted.txt 
-
----
-
 ## 2. Text Cleaning
 
 The pipeline removes:
@@ -104,39 +88,20 @@ The pipeline removes:
 - formatting noise
 - page markers
 
-### Output
-text *_cleaned.txt 
-
----
-
 ## 3. Chunking
 
 Large medical papers are divided into smaller AI-processable chunks.
 
 ### Output
-text *_chunks.json 
+chunks.json 
 
----
-
-## 4. Master Chunk Aggregation
-
-All chunk files are merged into:
-
-text all_chunks.json 
-
-This acts as the unified AI input dataset.
-
----
-
-## 5. Evidence Schema
+## 4. Evidence Schema
 
 The extraction schema defines the structure AI must generate:
 
 json {   "study_title": "",   "year": "",   "population": "",   "sample_size": "",   "sepsis_type": "",   "biomarker": "",   "outcome": "",   "main_finding": "",   "odds_ratio": "",   "auc": "",   "p_value": "",   "source_quote": "",   "paper_name": "",   "chunk_id": "" } 
 
----
-
-## 6. AI-Based Evidence Extraction
+## 5. AI-Based Evidence Extraction
 
 The AI system processes chunks and extracts:
 - biomarkers
@@ -145,9 +110,7 @@ The AI system processes chunks and extracts:
 - statistical metrics
 - source-grounded evidence
 
----
-
-## 7. Validation Layer
+## 6. Validation Layer
 
 Pydantic validates AI outputs before storage to ensure:
 - correct datatypes
@@ -155,9 +118,7 @@ Pydantic validates AI outputs before storage to ensure:
 - schema consistency
 - reliable evidence formatting
 
----
-
-## 8. Final Evidence Table
+## 7. Final Evidence Table
 
 Validated outputs are stored inside:
 
@@ -168,12 +129,6 @@ Example:
 | Study | Biomarker | Outcome | Finding |
 |---|---|---|---|
 | Baloch et al. | Lactate | Mortality | Higher lactate predicted mortality |
-
----
-
-# Repository Structure
-
-text src/ │ ├── notebooks/ ├── extraction_pipeline.ipynb └── validation_pipeline.ipynb  data/ │ ├── raw_pdfs/ ├── extracted_text/ ├── cleaned_text/ ├── chunks/ └── outputs/ 
 
 ---
 
