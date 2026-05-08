@@ -4,7 +4,7 @@
 
 Sepsis Atlas is an AI-powered medical evidence pipeline designed to transform unstructured sepsis research papers into structured, analysis-ready clinical evidence.
 
-Instead of manually reading and extracting findings from dozens of medical papers, the system automatically processes PDFs, extracts clinically relevant evidence, validates outputs, and organizes results into structured datasets for downstream analysis.
+Instead of manually reading and extracting findings from dozens of medical papers, which can be slow, expensive, and difficult to scale, the system automatically processes PDFs, extracts clinically relevant evidence, validates outputs, and organizes results into structured datasets for downstream analysis.
 
 The project focuses on:
 - scalable medical literature processing
@@ -14,16 +14,7 @@ The project focuses on:
 
 ---
 
-# Problem Statement
-
-Thousands of clinically valuable findings are buried inside medical research papers. Traditional meta-analysis requires manual extraction and is slow, expensive, and difficult to scale.
-
-Sepsis Atlas automates this process by converting:
-text Research PDFs → Structured Clinical Evidence 
-
----
-
-# Project Architecture
+## Project Architecture
 
 ```text
 Medical PDFs
@@ -41,7 +32,35 @@ Structured Evidence Table
 
 ---
 
-# Team Responsibilities
+## How to Use
+
+1. Place all relevant PDFs inside the `data/pdfs/` folder.
+
+2. Run the data pipeline notebook:
+
+```bash
+src/Data_pipeline.ipynb
+```
+
+3. Run the extraction script:
+
+```bash
+src/extract.py
+```
+
+4. Run the validation notebook:
+
+```bash
+src/data_validation.ipynb
+```
+
+5. Final validated outputs will be generated in:
+
+```text
+data/output/validated_output.csv
+```
+
+---
 
 ## Data Engineering / Pipeline Layer
 
@@ -74,7 +93,7 @@ Structured Evidence Table
 
 ---
 
-# Pipeline Stages
+## Pipeline Stages
 
 ## 1. PDF Extraction
 
@@ -128,7 +147,7 @@ data/output/validated_output.csv
 
 ---
 
-# Technologies
+## Technologies
 
 - Python
 - Jupyter Notebook
@@ -140,7 +159,31 @@ data/output/validated_output.csv
 
 ---
 
-# Future Improvements
+## Repository Structure
+
+```text
+Team-1
+├── data/
+│   ├── pdfs/
+│   └── output/
+│       ├── output.csv
+│       ├── output.json
+│       └── validated_output.csv
+│   ├── chunks.json
+│   ├── evidence_schema.json
+│   └── evidence_table.csv
+│
+├── src/
+│   ├── Data_pipeline.ipynb
+│   ├── data_validation.ipynb
+│   └── extract.py
+│
+└── README.md
+``` 
+
+---
+
+## Future Improvements
 
 - Streamlit dashboard
 - semantic search
@@ -151,7 +194,7 @@ data/output/validated_output.csv
 
 ---
 
-# Final Goal
+## Final Goal
 
 The final system enables clinicians and researchers to query large collections of sepsis literature and receive:
 
