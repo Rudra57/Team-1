@@ -122,13 +122,9 @@ Pydantic validates AI outputs before storage to ensure:
 
 Validated outputs are stored inside:
 
-text final_evidence_table.csv 
-
-Example:
-
-| Study | Biomarker | Outcome | Finding |
-|---|---|---|---|
-| Baloch et al. | Lactate | Mortality | Higher lactate predicted mortality |
+```text
+data/output/validated_output.csv
+```
 
 ---
 
